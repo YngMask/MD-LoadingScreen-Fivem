@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <title>EXCAPE RP</title>
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+        <!-- JavaScript Libraries (e.g., jQuery) -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        
+        
+        <div class="contenitore">
+            <ul class="primapersona">
+                <li>
+                    <img src="https://cdn.discordapp.com/embed/avatars/0.png" alt="Avatar Predefinito" class="logo">
+                    <p id="nomi" style="font-weight: bold;">CEO | RealMask808</p>
+                </li>
+            </ul>
+            <ul class="secondapersona">
+                <li>
+                    <img src="https://cdn.discordapp.com/embed/avatars/1.png" alt="Avatar Predefinito" class="logo">
+                    <p id="nomi" style="font-weight: bold;">CEO | Idemo.Yebati</p>
+                </li>
+            </ul>
+            <ul class="terzapersona">
+                <li>
+                    <img src="https://cdn.discordapp.com/embed/avatars/2.png" alt="Avatar Predefinito" class="logo">
+                    <p id="nomi" style="font-weight: bold;">FOUNDER | GiovineSdeim</p>
+                </li>
+            </ul>
+            <ul class="quartapersona">
+                <li>
+                    <img src="https://cdn.discordapp.com/embed/avatars/3.png" alt="Avatar Predefinito" class="logo">
+                    <p id="nomi" style="font-weight: bold;">CO-FOUNDER | ShOk-Fede</p>
+                </li>
+            </ul>
+        </div>
+        <!--     -->
+        <div class="video-background">
+            <iframe 
+                width="1790" 
+                height="799" 
+                src="https://www.youtube.com/embed/-pEkkQ1ITRk?autoplay=1&mute=1&loop=1&playlist=-pEkkQ1ITRk&controls=0&showinfo=0&modestbranding=1" 
+                title="FiveM Loadingscreen #13" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="audio-controls">
+            <!-- Play/Pause Button -->
+            <button class="audio-button" id="play-pause-button">
+                <span class="material-icons" id="play-pause-icon">play_arrow</span>
+            </button>
+        
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <input type="range" id="progress-bar" min="0" max="100" value="0" />
+            </div>
+        
+            <!-- Volume Button with Slider -->
+            <div class="volume-container">
+                <div class="volume-box">
+                    <!-- Pulsante invisibile -->
+                    <div class="volume-button" id="volume-button">
+                        <span class="material-icons">volume_up</span>
+                    </div>
+                
+                    <!-- Slider del volume -->
+                    <input type="range" id="volume-slider" min="0" max="1" step="0.1" value="1" />
+                </div>
+            </div>
+        </div>
+        
+        <audio id="audio-player" src="music/song.mp3" loop></audio>
+
+
+        <div class="social-buttons">
+            <button class="social-button discord" data-url="https://discord.gg/Ur9kE8qmNX">
+                <img src="https://cdn.worldvectorlogo.com/logos/discord-6.svg" alt="Discord" class="social-icon">
+            </button>
+            <!-- <button class="social-button tiktok" data-url="https://www.tiktok.com">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/TikTok_logo.svg/120px-TikTok_logo.svg.png" alt="TikTok" class="social-icon">
+            </button> -->
+            <button class="social-button instagram" data-url="https://www.instagram.com/excape_roleplay?igsh=Nnk0MGhlaW94d2ww">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon">
+            </button>
+        </div>
+        <div id="custom-cursor"></div>
+        <!-- JavaScript File -->
+        <script src="index.js"></script>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,411 @@
+/* Disabilita la selezione del testo per tutti gli elementi */
+* {
+    user-select: none; /* Impedisce la selezione del testo */
+    -webkit-user-select: none; /* Per browser WebKit */
+    -moz-user-select: none; /* Per Firefox */
+    -ms-user-select: none; /* Per Internet Explorer/Edge */
+}
+
+.contenitore, .audio-button, .social-button {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+@keyframes glowing-border {
+    0% {
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+    }
+    25% {
+        box-shadow: 0 0 20px 4px rgba(255, 157, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 30px 6px rgba(255, 0, 0, 1);
+    }
+    75% {
+        box-shadow: 0 0 20px 4px rgba(255, 157, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.5);
+    }
+}
+
+
+body {
+    /* background-image: url('img/background-excape.png');  */
+    background-size: cover; /* Adatta l'immagine per coprire l'intero schermo */
+    background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+    font-family: 'Inter', sans-serif; /* Usa il font Inter */
+ 
+}
+
+
+
+ul {
+    list-style-type: none; /* Rimuove i puntini accanto agli elementi <li> */
+    padding: 0.5em 3em; /* Rimuove il padding interno */
+    margin: 0; /* Rimuove il margine esterno */
+}
+
+ul li {
+    display: flex; /* Attiva Flexbox per ogni elemento della lista */
+    align-items: center; /* Allinea verticalmente il logo e il testo */
+    gap: 1em; /* Aggiunge spazio tra il logo e il nome */
+    margin-bottom: 0.5em; /* Riduce la distanza verticale tra gli elementi della lista */
+}
+
+.contenitore {
+    position: fixed; /* Posiziona il contenitore in modo fisso */
+    top: 50%; /* Posiziona il contenitore al centro verticale */
+    left: 44.5px; /* Mantiene il contenitore a sinistra */
+    transform: translateY(-50%) perspective(800px) rotateY(15deg); /* Effetto 3D inverso */
+    padding: 1em 2em;
+    margin: 0; /* Rimuove i margini */
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(255, 0, 0)); /* Sfumatura lineare */
+    width: 20%; /* Larghezza del contenitore */
+    border-radius: 5%; /* Rende gli angoli arrotondati */
+    animation: glowing-border 3s infinite; /* Applica l'animazione */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Aggiunge un'ombra per migliorare l'effetto 3D */
+}
+
+.logo {
+    margin-left: -1.8em;
+    width: 17%; /* Imposta la larghezza del logo */
+    border-radius: 50%; /* Rende il logo circolare */
+    animation: glowing-border 3s infinite; /* Applica l'animazione */
+    pointer-events: none; /* Disabilita interazioni come il trascinamento */
+    -webkit-user-drag: none; /* Disabilita il trascinamento nei browser WebKit */
+    user-drag: none; /* Disabilita il trascinamento nei browser compatibili */
+}
+
+#nomi {
+    text-align: left; /* Allinea il testo a sinistra */
+    font-size: 1em; /* Imposta la dimensione del font */
+    color: white; /* Colore del testo */
+    flex: 1; /* Permette al nome di occupare lo spazio rimanente */
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    overflow: hidden;
+}
+
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    object-fit: cover; 
+}
+
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.audio-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.audio-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.progress-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#progress-bar {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    background: #444;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Contenitore del volume */
+.volume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra il contenuto orizzontalmente */
+    gap: 10px; /* Spazio tra gli elementi */
+    width: auto; /* Adatta la larghezza al contenuto */
+    padding: 5px; /* Aggiunge spazio interno */
+    transition: width 0.3s ease; /* Transizione per l'allargamento */
+    overflow: visible; /* Permette alla .volume-box di essere visibile */
+}
+
+/* Box che contiene il pulsante e lo slider */
+.volume-box {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spazio tra il pulsante e lo slider */
+    width: 25px; /* Larghezza iniziale corrispondente al pulsante del volume */
+    background-color: rgba(200, 200, 200, 0.2); /* Grigio chiaro trasparente */
+    border-radius: 10px; /* Arrotonda gli angoli */
+    padding: 5px 10px; /* Spazio interno */
+    transition: background-color 0.3s ease, width 0.3s ease; /* Transizione per il colore e la larghezza */
+}
+
+/* Allarga il volume-box quando il cursore è sopra il contenitore */
+.volume-container:hover .volume-box {
+    width: 150px; /* Allarga il volume-box quando appare lo slider */
+}
+
+/* Cambia il colore del volume-box al passaggio del mouse */
+.volume-box:hover {
+    background-color: rgba(200, 200, 200, 0.3); /* Cambia colore al passaggio del mouse */
+}
+
+/* Pulsante del volume (effetto visivo con il div) */
+.volume-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0); /* Colore di sfondo trasparente */
+    border-radius: 50%; /* Effetto circolare */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.volume-button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Cambia colore al passaggio del mouse */
+}
+
+.volume-button .material-icons {
+    color: white;
+    font-size: 24px;
+}
+
+/* Slider del volume */
+#volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px; /* Larghezza dello slider */
+    height: 5px;
+    background: red; /* Gradiente iniziale */
+    outline: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease, background 0.3s ease; /* Transizione per la visibilità e il gradiente */
+    opacity: 0; /* Inizialmente invisibile */
+    pointer-events: none; /* Disabilita l'interazione quando invisibile */
+    border-radius: 5px; /* Arrotonda i bordi dello slider */
+}
+
+/* Mostra lo slider quando il cursore è sopra il contenitore */
+.volume-container:hover #volume-slider {
+    opacity: 1; /* Rende visibile lo slider */
+    pointer-events: auto; /* Abilita l'interazione */
+}
+
+/* Stile per il pallino dello slider (rosso) */
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    background: red; /* Colore rosso */
+    border-radius: 50%; /* Effetto circolare */
+    cursor: pointer;
+    position: relative;
+    z-index: 2; /* Porta il pallino sopra lo sfondo */
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: red; /* Colore rosso */
+    border-radius: 50%; /* Effetto circolare */
+    cursor: pointer;
+    position: relative;
+    z-index: 2; /* Porta il pallino sopra lo sfondo */
+}
+
+.social-buttons {
+    position: fixed;
+    top: 50%; /* Posiziona il contenitore al centro verticale */
+    right: 20px; /* Mantiene il contenitore a destra */
+    display: flex;
+    flex-direction: column; /* Dispone i pulsanti in verticale */
+    gap: 10px; /* Spazio tra i pulsanti */
+    transform: translateY(-50%); /* Centra il contenitore verticalmente */
+}
+
+.social-button {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Centra l'immagine orizzontalmente */
+    align-items: center; /* Centra l'immagine verticalmente */
+    border-radius: 50%; /* Rende i pulsanti circolari */
+    border: none; /* Rimuove il bordo */
+    background-color: #fff; /* Sfondo bianco per contrasto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Ombra per i pulsanti */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Animazione al passaggio del mouse */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    animation: glowing-border 3s infinite; /* Applica l'animazione */
+}
+
+.social-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Ombra più intensa al passaggio del mouse */
+    transform: scale(1.1); /* Ingrandisce leggermente il pulsante */
+}
+
+.social-icon {
+    width: 60%; /* Dimensione dell'icona */
+    height: 60%; /* Dimensione dell'icona */
+    border: none; /* Rimuove il bordo */
+    object-fit: contain; /* Adatta l'immagine senza distorcerla */
+}
+/* Cursore personalizzato */
+#custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    background: url('img/cursore.png') no-repeat center center; /* Immagine del cursore */
+    background-size: contain;
+    pointer-events: none; /* Disabilita l'interazione con il cursore */
+    z-index: 99999; /* Posiziona il cursore sopra tutto */
+
+}
+
+.audio-button, .social-button {
+    position: relative;
+    z-index: 10; /* Pulsanti con z-index basso */
+    pointer-events: auto; /* Permette ai pulsanti di ricevere eventi */
+    cursor: pointer; /* Mostra il cursore predefinito */
+}
+
+.social-button img {
+    width: 32px;
+    height: 32px;
+    pointer-events: none; /* Impedisce che l'immagine interferisca con il clic */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .contenitore {
+        width: 30%;
+    }
+
+    .logo {
+        width: 20%;
+    }
+
+    #nomi {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    ul {
+        padding: 0.5em 1em;
+    }
+
+    .contenitore {
+        width: 50%;
+    }
+
+    .logo {
+        width: 25%;
+    }
+
+    .audio-controls {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #volume-slider {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    ul li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contenitore {
+        width: 80%;
+        padding: 1em;
+    }
+
+    .logo {
+        width: 30%;
+    }
+
+    .audio-button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    #volume-slider {
+        width: 60px;
+    }
+
+    .social-buttons {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .social-button {
+        width: 40px;
+        height: 40px;
+    }
+}
